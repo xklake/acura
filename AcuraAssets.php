@@ -46,8 +46,8 @@ class AcuraAssets extends AssetBundle
     ];
 
     public $depends = [
-        // 'yii\web\YiiAsset',
-        //'yii\web\JqueryAsset',
+        //'yii\web\YiiAsset',
+        'yii\web\JqueryAsset',
     ];
 
     public function init()

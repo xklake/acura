@@ -14,7 +14,7 @@
         <ul class="slides">
           <?php foreach($banners as $item) { ?>
             <li>
-              <img src="<?=Yii::$app->urlManager->getHostInfo().'/'.$item->image?>" alt="<?=$item->keywords?>">
+              <img src="<?=Yii::$app->urlManager->getHostInfo().'/'.$item->image?>" alt="$item->keywords">
               <div class="flex-caption">
                   <h3><?=$item->keywords?></h3> 
                   <p><?=$item->description?></p> 
