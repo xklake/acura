@@ -18,23 +18,31 @@ class AcuraAssets extends AssetBundle
 
     public $css = [
         'css/bootstrap.min.css',
-        'css/font-awesome.css',
-        'css/prettyPhoto.css',
-        'css/animate.min.css',
-        'css/responsive.css',
-        'css/scrolling-nav.css',
-        'css/main.css',
+        //'css/font-awesome.css',
+        'css/fancybox/jquery.fancybox.css',
+        'css/flexslider.css',
+        'css/style.css',
+        //'css/prettyPhoto.css',
+        //'css/animate.min.css',
+        //'css/responsive.css',
+        //'css/scrolling-nav.css',
+        //'css/main.css',
     ];
 
     public $js = [
-        'js/jquery.js',
+        'js/jquery.easing.1.3.js',
         'js/bootstrap.min.js',
-        'js/jquery.prettyPhoto.js',
+        'js/jquery.fancybox.pack.js',
+        'js/jquery.fancybox-media.js',  
+        'js/jquery.flexslider.js',
+        'js/animate.js',
+        'js/modernizr.custom.js',
         'js/jquery.isotope.min.js',
-        'js/wow.min.js',
-        'js/scrolling-nav.js',
-        'js/jquery.easing.min.js',
-        'js/main.js',
+        'js/jquery.magnific-popup.min.js',
+        'js/animate.js',
+        'js/custom.js', 
+        'js/jqBootstrapValidation.js', 
+        'js/contact_me.js'
     ];
 
     public $depends = [

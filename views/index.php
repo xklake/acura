@@ -5,204 +5,230 @@
  * Date: 6/9/16
  * Time: 5:32 PM
  */
-
-    $banners = Yii::$app->getImageByGroup('banner');
-    $index = 0;
-
-    $products = \common\models\Product::find()->where(['status'=> \funson86\blog\models\Status::STATUS_ACTIVE])->andWhere(['=', 'catalog_id', 51])->all();
-    $storeimg = Yii::$app->getImages('storepic');
-    $news = \funson86\blog\models\BlogPost::find()->where(['status'=>\funson86\blog\models\Status::STATUS_ACTIVE])->limit(4)->orderBy(['created_at' => SORT_DESC])->all();
+    $banners = Yii::$app->getImageByGroup('banner1');
 ?>
 
-<section id="main-slider">
-    <div class="carousel slide" data-ride="carousel" data-interval="2000">
-        <ol class="carousel-indicators">
-            <?php foreach($banners as $item) {
-            if($index == 0){
-            ?>
-            <li data-target="<?=Yii::$app->urlManager->getHostInfo().'/#main-slider'?>" data-slide-to="<?=$index?>" class="active"></li>
-            <?} else { ?>
-            <li data-target="<?=Yii::$app->urlManager->getHostInfo().'/#main-slider'?>" data-slide-to="<?=$index?>"></li>
-            <? }
-            $index ++ ; }?>
-        </ol>
-
-        <div class="carousel-inner"  role="listbox">
-            <?php
-            $index = 0;
-            foreach($banners as $item) {
-                if($index == 0){
-                ?>
-                    <div class="item active" style="background-image: url(<?=Yii::$app->urlManager->getHostInfo().'/'.$item->image?>)">
-                <?php } else { ?>
-                    <div class="item" style="background-image: url(<?=Yii::$app->urlManager->getHostInfo().'/'.$item->image?>)">
-                <?php } ?>
-                        <div class="container">
-                            <div class="row slide-margin">
-                                <div class="col-sm-6">
-                                    <div class="carousel-content">
-                                        <div class="animation animated-item-1" style="font-size: 4rem;line-height: 50px;"><?=$item->keywords?></div>
-                                        <div class="animation animated-item-2" style="font-size: 2.8rem;margin-top:35px; "><?=$item->description?></div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                    <div class="slider-img">
-                                        <!--img src="/images/modern/slider/img1.png" class="img-responsive"-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            <?php $index ++; } ?>
-        </div><!--/.carousel-inner-->
-    </div><!--/.carousel-->
-    <a class="prev hidden-xs" href="<?=Yii::$app->urlManager->getHostInfo().'/#main-slider'?>" data-slide="prev" role="button">
-        <i class="fa fa-chevron-left"></i>
-    </a>
-    <a class="next hidden-xs" href="<?=Yii::$app->urlManager->getHostInfo().'/#main-slider'?>" data-slide="next" role="button">
-        <i class="fa fa-chevron-right"></i>
-    </a>
-</section><!--/#main-slider-->
-
-<?php
-$k = 1;
-foreach($products as $item){
-?>
-    <section id="service<?=$k?>" style="padding-bottom: 50px;">
-        <div class="container">
-            <div class="row" style="margin-top: 50px;">
-                <div class="col-md-6">
-                    <?=$item->content?>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="image-md-aside position-right">
-                        <div class="image-wrap">
-                            <img src="<?=Yii::$app->urlManager->getHostInfo().'/'.$item->thumb?>" alt="<?=$item->name?>" style="width: 100%;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/.container-->
-    </section><!--/#feature-->
-<?php
-    $k = $k + 1;
-} ?>
-
-<!-- price section -->
-<section id="price">
-    <div class="container">
-        <?php
-            $price = Yii::$app->getHtmlBlock('price');
-            if($price){
-                echo ($price->content);
-            }
-        ?>
-    </div><!--/.container-->
-</section><!--/#recent-works-->
-
-<section id="contact">
-    <div class="container-fluid">
-        <div class="text-center">
-            <span style="font-size: 2rem; ">Contact us</span>
-        </div>
-
-        <div class="row" style="margin: 30px 0px 30px 0px">
-            <div class="col-sm-6">
-                <img style="width: 100%;" src="<?=Yii::$app->urlManager->getHostInfo().'/'.$storeimg->image?>">
-            </div>
-
-            <div class="col-sm-6" style="margin-top:30px;">
-                <div>
-                    <i class="fa fa-mobile" style="font-size: 2rem;"></i>
-
-                    <a href='tel:<?=Yii::$app->setting->get('mobile')?>'>
-                        <?=Yii::$app->setting->get('mobile')?>
-                    </a>
-                </div>
-                <br/>
-                <div>
-                    <i class="fa fa-phone" style="font-size: 2rem;"></i>
-
-                    <a href='tel:<?=Yii::$app->setting->get('phone')?>'>
-                        <?=Yii::$app->setting->get('phone')?>
-                    </a>
-                </div>
-                <br/>
-                <div>
-                    <i class="fa fa-map-marker" style="font-size: 2rem;"></i>
-                    <span>
-                        <?=Yii::$app->setting->get('address')?>
-                    </span>
-                </div>
-                <br/>
-
-                <div>
-                    <i class="fa fa-clock-o " style="font-size: 2rem;"></i>
-                    <span>
-                        <?=Yii::$app->setting->get('worktime')?>
-                    </span>
-                </div>
-                <br/>
-
-                <div>
-                    <i class="fa fa-calendar" style="font-size: 2rem;"></i>
-
-                    <span>
-                        <?=Yii::$app->getTextBlock("apoointment")->content?>
-                    </span>
-
-                </div>
-
-                <br/>
-
-                <div>
-                    <i class="fa fa-credit-card "></i>
-                    <span><?=Yii::$app->getTextBlock("payment")->content?></span>
-                </div>
-
-                <br/>
-
-                <div>
-                    <i class="fa fa-history"></i>
-                    <span><?=Yii::$app->getTextBlock('history')->content?></span>
-                </div>
-            </div>
-        </div>
-
-        <iframe src="<?=Yii::$app->setting->get('googlemap')?>" style="width:100%;height: 350px;border: none;margin:0px;padding:0px;"></iframe>
+<section id="banner">
+<!-- Slider -->
+    <div id="main-slider" class="flexslider">
+        <ul class="slides">
+          <?php foreach($banners as $item) { ?>
+            <li>
+              <img src="<?=Yii::$app->urlManager->getHostInfo().'/'.$item->image?>" alt="<?=$item->keywords?>">
+              <div class="flex-caption">
+                  <h3><?=$item->keywords?></h3> 
+                  <p><?=$item->description?></p> 
+              </div>
+            </li>
+          <?php } ?>
+        </ul>
     </div>
-</section><!--/#services-->
+<!-- end slider -->
+</section> 
 
-<section id="news">
-    <div class="container-fluid">
-        <div class="text-center" style="margin-top: 20px;">
-            <span style="font-size: 2rem; ">Health Therapy</span>
-        </div>
-        <?php foreach($news as $item){ ?>
-            <div class="row">
-                <div class="col-xs-12 col-sm-3">
-                    <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->id])?>">
-                        <img class="img-responsive  img-thumbnail" src="<?=Yii::$app->urlManager->getHostInfo().'/'.$item->banner?>">
-                    </a>
-                </div>
-
-                <div class="col-xs-12 col-sm-9">
-                    <div style="margin:10px 0px 10px 0px;">
-                        <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/view', 'id'=> $item->id])?>">
-                            <h4 style="margin-top:0px;"><?=$item->title?></h4>
-                        </a>
-                    </div>
-
-                    <div>
-                        <blockquote>
-                            <?=$item->brief?>
-                        </blockquote>
-                    </div>
-                </div>
+<section id="call-to-action-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-sm-9">
+                <h3>Best Business consulting</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus temporibus perferendis nesciunt quam repellendus nulla nemo ipsum odit corrupti</p>
             </div>
-        <?php } ?>
+            <div class="col-md-2 col-sm-3">
+                <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
     </div>
 </section>
 
+<section id="content">
+	<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aligncenter"><h2 class="aligncenter">Our Services</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus ovident, doloribus omnis minus temporibus perferendis nesciunt..</div>
+                <br/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-bell-o"></i>
+                <div class="info-blocks-in">
+                    <h3>Consulting</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt</p>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-hdd-o"></i>
+                <div class="info-blocks-in">
+                    <h3>Strategy</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt</p>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-lightbulb-o"></i>
+                <div class="info-blocks-in">
+                    <h3>Analysis</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-code"></i>
+                <div class="info-blocks-in">
+                    <h3>Investment</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt</p>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-compress"></i>
+                <div class="info-blocks-in">
+                    <h3>Creative</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt</p>
+                </div>
+            </div>
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-html5"></i>
+                <div class="info-blocks-in">
+                    <h3>24/7 Support</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt</p>
+                </div>
+            </div>
+        </div>
+	</div>
+</section>
+
+<section class="section-padding gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h2>Our Organization</h2>
+                    <p>Curabitur aliquet quam id dui posuere blandit. Donec sollicitudin molestie malesuada Pellentesque <br>ipsum id orci porta dapibus. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="about-text">
+                    <p>Grids is a responsive Multipurpose Template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet quam id dui posuere blandit. Donec sollicitudin molestie malesuada. Pellentesque in ipsum id orci porta dapibus. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+
+                    <ul class="withArrow">
+                        <li><span class="fa fa-angle-right"></span> Lorem ipsum dolor sit amet</li>
+                        <li><span class="fa fa-angle-right"></span> consectetur adipiscing elit</li>
+                        <li><span class="fa fa-angle-right"></span> Curabitur aliquet quam id dui</li>
+                        <li><span class="fa fa-angle-right"></span> Donec sollicitudin molestie malesuada.</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="about-image">
+                    <img src="img/about.png" alt="About Images">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>	  
+	
+<div class="about home-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Heading and para -->
+                <div class="block-heading-two">
+                    <h3><span>Programes</span></h3>
+                </div>
+                <p>Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur. <br><br>Sed ut perspiciaatis iste natus error sit voluptatem probably haven't heard of them accusamus.</p>
+            </div>
+            <div class="col-md-4">
+                <div class="block-heading-two">
+                    <h3><span>Latest News</span></h3>
+                </div>		
+                <!-- Accordion starts -->
+                <div class="panel-group" id="accordion-alt3">
+                    <!-- Panel. Use "panel-XXX" class for different colors. Replace "XXX" with color. -->
+                    <div class="panel">	
+                        <!-- Panel heading -->
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseOne-alt3">
+                                    <i class="fa fa-angle-right"></i> Accordion Heading Text Item # 1
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne-alt3" class="panel-collapse collapse">
+                            <!-- Panel body -->
+                            <div class="panel-body">
+                                Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseTwo-alt3">
+                                    <i class="fa fa-angle-right"></i> Accordion Heading Text Item # 2
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo-alt3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseThree-alt3">
+                                    <i class="fa fa-angle-right"></i> Accordion Heading Text Item # 3
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree-alt3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseFour-alt3">
+                                    <i class="fa fa-angle-right"></i> Accordion Heading Text Item # 4
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour-alt3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accordion ends -->
+            </div>
+
+            <div class="col-md-4">
+                <div class="block-heading-two">
+                    <h3><span>Testimonials</span></h3>
+                </div>	
+                <div class="testimonials">
+                    <div class="active item">
+                        <blockquote><p>Lorem ipsum dolor met consectetur adipisicing. Aorem psum dolor met consectetur adipisicing sit amet, consectetur adipisicing elit, of them jean shorts sed magna aliqua. Lorem ipsum dolor met.</p></blockquote>
+                        <div class="carousel-info">
+                            <img alt="" src="img/team4.jpg" class="pull-left">
+                            <div class="pull-left">
+                                <span class="testimonials-name">Marc Cooper</span>
+                                <span class="testimonials-post">Technical Director</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>

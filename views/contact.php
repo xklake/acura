@@ -7,61 +7,65 @@
  */
 ?>
 
-
-
-<section id="contact-info">
-    <div class="center">
-        <?= Yii::$app->getHtmlBlock('modern-contact-lead')->content; ?>
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pageTitle"><?=$catalog->surname?></h2>
+            </div>
+        </div>
     </div>
-    <div class="gmap-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5 text-center">
-                    <div class="gmap">
-                        <iframe src="<?=Yii::$app->setting->get('googlemap')?>" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    </div>
-                </div>
+</section>
 
-                <div class="col-sm-7 map-content">
-                    <ul class="row">
-                        <li class="col-sm-12">
-                            <address>
-                                <p>
-                                    <a href='tel:<?=Yii::$app->setting->get('mobile')?>' class="fa fa-mobile">
-                                        <?=Yii::$app->setting->get('mobile')?>
-                                    </a>
-                                </p>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2><span class=''>We look forward to hearing from you!</span></h2>
+            </div>
+        </div>
 
-                                <p>
-                                    <a href='tel:<?=Yii::$app->setting->get('phone')?>' class="fa fa-phone">
-                                        <?=Yii::$app->setting->get('phone')?>
-                                    </a>
-                                </p>
-                                <p>
-                                    <a href="mailto:<?=Yii::$app->setting->get('email')?>"   class="fa fa-envelope-o">
-                                        <?=Yii::$app->setting->get('email')?>
-                                    </a>
-                                </p>
+        <div class="row">
+            <div class="col-sm-5 text-center map-content">
+                <p>
+                    <img src='/images/office.png' style='margin:0px 10px 10px 10px;'>
+                </p>
+                <p>
+                    <a href='tel:<?= Yii::$app->setting->get('mobile') ?>' class="fa fa-mobile">
+                        <?= Yii::$app->setting->get('mobile') ?>
+                    </a>
+                </p>
 
-                                <p>
-                                    <a href='#'  class="fa fa-map-marker">
-                                        <?=Yii::$app->setting->get('address')?>
-                                    </a>
-                                </p>
-                                <p>
-                                    <a href='tel:<?=Yii::$app->setting->get('wechat')?>' class="fa fa-weixin">
-                                        <?=Yii::$app->setting->get('wechat')?>
-                                    </a>
-                                </p>
-								
-								<p>
-									<img src="/images/wechat.png">
-								</p>
-                            </address>
-                        </li>
-                    </ul>
+                <p>
+                    <a href='tel:<?= Yii::$app->setting->get('phone') ?>' class="fa fa-phone">
+                        <?= Yii::$app->setting->get('phone') ?>
+                    </a>
+                </p>
+                <p>
+                    <a href="mailto:<?= Yii::$app->setting->get('email') ?>"   class="fa fa-envelope-o">
+                        <?= Yii::$app->setting->get('email') ?>
+                    </a>
+                </p>
+
+                <p>
+                    <a href='#'  class="fa fa-map-marker">
+                        <?= Yii::$app->setting->get('address') ?>
+                    </a>
+                    <br/>
+                    <span style='font-size:1rem;'>（Office visit by appointment only）</span>
+                </p>
+                <!--p>
+                    <a href='tel:<?= Yii::$app->setting->get('wechat') ?>' class="fa fa-weixin">
+                <?= Yii::$app->setting->get('wechat') ?>
+                    </a>
+                </p-->
+            </div>
+
+            <div class="col-sm-7 map-content">
+                <div class="width:100%;">
+                    <iframe src="<?= Yii::$app->setting->get('googlemap') ?>" frameborder="0" style="border:0;width:100%;" height="435px" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </div>
-</section>  <!--/gmap_area -->
+</section>

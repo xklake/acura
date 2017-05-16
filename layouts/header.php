@@ -1,38 +1,65 @@
-<nav class="navbar navbar-fixed-top navbar-default" role="navigation" style="background:#8d70b2;">
-    <div class="container">
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="border-color: #fff;">
-                <span class="sr-only" style="background-color: #fff">Toggle navigation</span>
-                <span class="icon-bar" style="background-color: #fff"></span>
-                <span class="icon-bar" style="background-color: #fff"></span>
-                <span class="icon-bar" style="background-color: #fff"></span>
-            </button>
+<!-- top bar -->
+<div class="topbar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12"> 	  
+        <p class="pull-left hidden-xs"><i class="fa fa-clock-o"></i><span>Lingua Chinese Translation</span></p>
+        <p class="pull-right"><a href="tel:<?=Yii::$app->setting->get('mobile')?>"><i class="fa fa-phone"></i><?=Yii::$app->setting->get('mobile')?></a></p>
+      </div>
+    </div>
+  </div>
+</div>
 
-            <a class="navbar-brand page-scroll" href="<?=\yii\helpers\Url::home(true).'#page-top'?>" style="color: lightgreen;font-size: 2.3rem;">
-                <img src="<?=Yii::$app->urlManager->getHostInfo().'/images/logo.png'?>" alt="<?=Yii::$app->getTextBlock('logo')->content?>" style="margin-left: 0px;"/>
-            </a>
+<!-- start header -->
+<header>
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<?=Yii::$app->urlManager->getHostInfo().Yii::$app->homeUrl?>">
+                    <img src="<?=Yii::$app->urlManager->getHostInfo().'/'.Yii::$app->getImages('logo')->image?>" alt="<?=Yii::$app->setting->get('siteName')?>"/>
+                </a>
+            </div>
+            
+            <div class="navbar-collapse collapse ">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="<?=Yii::$app->urlManager->getHostInfo().Yii::$app->homeUrl?>">Home</a>
+                    </li> 
+                    
+                    <?php foreach(Yii::$app->params['mainMenu'] as $item) {
+                        $sons = \funson86\blog\models\BlogCatalog::find()->where(['parent_id' =>$item['id']])->andWhere(['status'=> \funson86\blog\models\Status::STATUS_ACTIVE])->all();
+                        if(count($sons) == 0){
+                    ?>
+                            <li>
+                                <a href="<?=Yii::$app->urlManager->getHostInfo().$item['url']?>">
+                                    <?=$item['surname']?>
+                                </a>
+                            </li>
+                        <?php } else { ?>
+                            <li class="dropdown">
+                               <a href="#" data-toggle="dropdown" class="dropdown-toggle"><?=$item['surname']?> <b class="caret"></b></a>
+                               <ul class="dropdown-menu">
+                                   <?php                                       
+                                        foreach ($sons as $subcata){ 
+                                    ?>
+                                   <li><a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/catalog', 'id' => $subcata->id])?>"><?=$subcata['surname']?></a></li>
+                                   <?php } ?>
+                               </ul>
+                            </li>                        
+                        <?php } ?>
+                    <?php } ?>
+                            
+                    <li>
+                        <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/quote'])?>">ONLINE QUOTE</a>
+                    </li>                             
+                </ul>
+            </div>
         </div>
-
-        <div class="collapse navbar-collapse  navbar-ex1-collapse navbar-right ">
-            <ul class="nav navbar-nav" >
-                <li>
-                    <a href="<?=\yii\helpers\Url::home(true).'#service1'?>" class="page-scroll" >Service</a>
-                </li>
-
-                <li>
-                    <a href="<?=\yii\helpers\Url::home(true).'#price'?>" class="page-scroll" >Price</a>
-                </li>
-
-                <li>
-                    <a href="<?=\yii\helpers\Url::home(true).'#contact'?>" class="page-scroll" >Contact</a>
-                </li>
-
-                <li>
-                    <a href="<?=Yii::$app->getUrlManager()->createAbsoluteUrl(['/blog/default/catalog/','id'=>52])?>" class="page-scroll" >Health Therapy</a>
-                </li>
-            </ul>
-        </div>
-    </div><!--/.container-->
-</nav><!--/nav-->
-
-
+    </div>
+</header>
+<!-- end header -->
