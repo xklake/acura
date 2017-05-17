@@ -12,61 +12,67 @@
 		<div class="row">
 			<div class="col-md-3 col-sm-3">
 				<div class="widget">
-					<h5 class="widgetheading">Our Contact</h5>
+					<h5 class="widgetheading">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        Address
+                    </h5>
 					<address>
-					<strong>Bootstrap company Inc</strong><br>
-					JC Main Road, Near Silnile tower<br>
-					 Pin-21542 NewYork US.</address>
-					<p>
-						<i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br>
-						<i class="icon-envelope-alt"></i> email@domainname.com
-					</p>
+    					<!--strong>Lingua Chinese Translation</strong><br-->
+                        <?php 
+                            echo(Yii::$app->setting->get('address'))
+                        ?>
+                    </address>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-3">
 				<div class="widget">
-					<h5 class="widgetheading">Quick Links</h5>
-					<ul class="link-list">
-						<li><a href="#">Latest Events</a></li>
-						<li><a href="#">Terms and conditions</a></li>
-						<li><a href="#">Privacy policy</a></li>
-						<li><a href="#">Career</a></li>
-						<li><a href="#">Contact us</a></li>
-					</ul>
+					<h5 class="widgetheading">
+                        <i class="fa fa-mobile-phone" aria-hidden="true"></i>
+                        Call Mobile
+                    </h5>
+                    <address>
+                        <a href='tel:<?=Yii::$app->setting->get("mobile")?>'><?=Yii::$app->setting->get("mobile")?></a>
+                    </address>
 				</div>
 			</div>
+            
 			<div class="col-md-3 col-sm-3">
 				<div class="widget">
-					<h5 class="widgetheading">Latest posts</h5>
-					<ul class="link-list">
-						<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-						<li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
-						<li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
-					</ul>
+					<h5 class="widgetheading">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        Call Phone
+                    </h5>
+                    <address>
+                        <a href='tel:<?=Yii::$app->setting->get("phone")?>'><?=Yii::$app->setting->get("phone")?></a>
+                    </address>
 				</div>
 			</div>
+            
 			<div class="col-md-3 col-sm-3">
 				<div class="widget">
-					<h5 class="widgetheading">Recent News</h5>
-					<ul class="link-list">
-						<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-						<li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
-						<li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
-					</ul>
-				</div>
+					<h5 class="widgetheading">
+                        <i class="fa fa-mobile-phone" aria-hidden="true"></i>
+                        Email
+                    </h5>
+                    <address>
+                        <a href="mailto:<?=Yii::$app->setting->get('email')?>"><?=Yii::$app->setting->get('email')?></a>
+                    </address>
+            	</div>
 			</div>
 		</div>
 	</div>
+    
 	<div id="sub-footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="copyright">
 						<p>
-							<span>&copy; Bootstrap Template 2017 All right reserved. Template By </span><a href="http://webthemez.com/free-bootstrap-templates/" target="_blank">WebThemez</a>
+							<span>&copy; Lingua Chinese Translation, all right reserved. Powered By </span><a href="http://chinasoftware.co.uk" target="_blank">chinasoftware.co.uk</a>
 						</p>
 					</div>
 				</div>
+                
 				<div class="col-lg-6">
 					<ul class="social-network">
 						<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>

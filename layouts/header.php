@@ -3,8 +3,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12"> 	  
-        <p class="pull-left hidden-xs"><i class="fa fa-clock-o"></i><span>Lingua Chinese Translation</span></p>
-        <p class="pull-right"><a href="tel:<?=Yii::$app->setting->get('mobile')?>"><i class="fa fa-phone"></i><?=Yii::$app->setting->get('mobile')?></a></p>
+        <p class="pull-left"><i class="fa fa-globe"></i><span>Lingua Chinese Translation</span></p>
+        <p class="pull-right">
+            <a href="http://cn.lctranslate.co.uk">
+                <img src="/images/china.png">
+            </a>
+        </p>
       </div>
     </div>
   </div>
