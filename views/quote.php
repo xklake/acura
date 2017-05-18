@@ -50,44 +50,37 @@ $service = ['Certified Translation', 'Document Translation','Transcription ', 'P
             <div class="col-lg-12">
                 <?php $form = yii\widgets\ActiveForm::begin(['id' => 'quote-form', 'options' => ['class'=> 'uk-panel uk-panel-box uk-form']]); ?>
                     <h3>Quotation Form</h3>
-
-                    <!--div class="form-group row">
-                        <label for="example-text-input" class="col-2 col-form-label">Name</label>
-                        <div class="col-10">
-                            <?= Html::activeTextInput($model, 'name', ['class' => 'form-control', 'placeholder' => "Name(*)"]) ?>
-                        </div>
-                    </div-->
-                    
                     <div class="uk-form-row">
-                        Name:<?= Html::activeTextInput($model, 'name', ['class' => 'form-control', 'placeholder' => "Name(*)"]) ?>
+                        Name:<?= Html::activeTextInput($model, 'name', ['class' => 'form-control', 'placeholder' => ""]) ?>
                     </div>
                     <br/>
                     <div class="uk-form-row">
-                        Email:<?= Html::activeTextInput($model, 'email', ['class' => 'form-control', 'placeholder' => "Email(*)"]) ?>
+                        Email
+                        <?= Html::activeTextInput($model, 'email', ['class' => 'form-control', 'placeholder' => ""]) ?>
                     </div>
                     <br/>
                
                     <div class="uk-form-row">
-                        Source Language:
-                        <?= Html::activeTextInput($model, 'from', ['class' => 'form-control', 'placeholder' => "Source Language"]) ?>
+                        Source Language
+                        <?= Html::activeTextInput($model, 'from', ['class' => 'form-control', 'placeholder' => ""]) ?>
                     </div>
                     <br/>
                     
                     <div class="uk-form-row">
-                        Target Language:
-                        <?= Html::activeTextInput($model, 'to', ['class' => 'form-control', 'placeholder' => "Target Language"]) ?>
+                        Target Language
+                        <?= Html::activeTextInput($model, 'to', ['class' => 'form-control', 'placeholder' => ""]) ?>
                     </div>
                     <br/>
                     
                     <div class="uk-form-row">
-                        Service:
+                        Service
                         <?= Html::activeDropDownList($model, 'serivce', $service,['class' => 'form-control']) ?>
                     </div>
                     <br/>
                     
                     <div class="uk-form-row">
-                        Delivery Date(YYYY-MM-DD):
-                        <?= Html::activeTextInput($model, 'deliverydate', ['class' => 'form-control', 'placeholder' => "Delivery Date"]) ?>
+                        Delivery Date(YYYY-MM-DD)
+                        <?= Html::activeTextInput($model, 'deliverydate', ['class' => 'form-control', 'placeholder' => ""]) ?>
                     </div>
                     <br/>
 
@@ -98,8 +91,8 @@ $service = ['Certified Translation', 'Document Translation','Transcription ', 'P
                     <br/>
 
                     <div class="uk-form-row">
-                        Describe Request:
-                        <?= Html::activeTextarea($model, 'body', ['class' => 'form-control', 'placeholder' => "Describe Request", 'rows'=>5]) ?>
+                        Describe Request
+                        <?= Html::activeTextarea($model, 'body', ['class' => 'form-control', 'placeholder' => "", 'rows'=>5]) ?>
                     </div>
                     <br/>
                    

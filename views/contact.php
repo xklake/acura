@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-sm-5 text-center map-content">
                 <p>
-                    <img src='/images/office.png' style='margin:0px 10px 10px 10px;'>
+                    <img src='/images/office.png' style='margin-right: 10px;max-width: 100%;height: auto;' class="img-fluid">
                 </p>
                 <p>
                     <a href='tel:<?= Yii::$app->setting->get('mobile') ?>' class="fa fa-mobile">

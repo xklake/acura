@@ -78,7 +78,7 @@
             <div class="col-sm-4 info-blocks">
                 <i class="icon-info-blocks fa fa-bell-o"></i>
                 <div class="info-blocks-in">
-                    <h3>Languages</h3>
+                    <h3>Languages we cover</h3>
                     <p>
                         <?php 
                             $home_service_language= Yii::$app->getTextBlock('home-service-language');
