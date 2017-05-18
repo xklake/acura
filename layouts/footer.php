@@ -65,9 +65,9 @@
 	<div id="sub-footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6">
-					<div class="copyright">
-						<p>
+				<div class="col-lg-12">
+					<div class="copyright ">
+                        <p class="text-center">
 							<span>&copy; Lingua Chinese Translation 2017, all right reserved. Powered By </span><a href="http://chinasoftware.co.uk" target="_blank">chinasoftware</a>
 						</p>
 					</div>
