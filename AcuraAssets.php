@@ -42,7 +42,6 @@ class AcuraAssets extends AssetBundle
         'js/animate.js',
         'js/custom.js', 
         'js/jqBootstrapValidation.js', 
-        'js/contact_me.js'
     ];
 
     public $depends = [
