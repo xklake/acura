@@ -5,7 +5,7 @@
  * Date: 06/09/16
  * Time: 3:40 PM
  */
-namespace frontend\web\template\Acura;
+namespace frontend\web\template\acura;
 use yii;
 use yii\web\AssetBundle;
 

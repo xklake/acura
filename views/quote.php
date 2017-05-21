@@ -53,7 +53,7 @@ $service = [
 
         <div class="row">
             <div class="col-lg-12">
-                <?php $form = yii\widgets\ActiveForm::begin(['id' => 'quote-form', 'options' => ['class' => 'form-horizontal', 'enctype'=>'multipart/form-data']]); ?>
+                <?php $form = yii\widgets\ActiveForm::begin(['id' => 'quote-form', 'options' => ['enctype'=>'multipart/form-data']]); ?>
                     <h3>Quotation Form</h3>
                     <div class="form-group">
                         Name:<?= Html::activeTextInput($model, 'name', ['class' => 'form-control', 'placeholder' => ""]) ?>
