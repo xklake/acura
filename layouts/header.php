@@ -3,7 +3,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12"> 	  
-        <p class="pull-left"><i class="fa fa-globe"></i><span>Lingua Chinese Translation</span></p>
+        <p class="pull-left"><i class="fa fa-globe"></i>
+            <span>
+                <?php 
+                    echo(Yii::$app->setting->get('siteName'));
+                ?>
+            </span>
+        </p>
         <p class="pull-right">
             <a href="http://cn.lctranslate.co.uk">
                 <img src="/images/china.png">

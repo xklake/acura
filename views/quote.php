@@ -7,6 +7,8 @@ $service = [
     'Transcription' => 'Transcription ', 
     'Proofreading and Editing' => 'Proofreading and Editing', 
     'Interpretation' => 'Interpretation'];
+
+$this->title = 'Free online quotation';
 /**
  * Created by PhpStorm.
  * User: qiang
@@ -56,7 +58,7 @@ $service = [
                 <?php $form = yii\widgets\ActiveForm::begin(['id' => 'quote-form', 'options' => ['enctype'=>'multipart/form-data']]); ?>
                     <h3>Quotation Form</h3>
                     <div class="form-group">
-                        Name:<?= Html::activeTextInput($model, 'name', ['class' => 'form-control', 'placeholder' => ""]) ?>
+                        Name<?= Html::activeTextInput($model, 'name', ['class' => 'form-control', 'placeholder' => ""]) ?>
                     </div>
                     <br/>
                     <div class="form-group">
