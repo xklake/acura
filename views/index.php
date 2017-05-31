@@ -80,13 +80,15 @@
                 <div class="info-blocks-in">
                     <h3>Languages we cover</h3>
                     <p>
+                        <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/catalog', 'id'=>58])?>">
                         <?php 
                             $home_service_language= Yii::$app->getTextBlock('home-service-language');
                             if($home_service_language != null)
                             {
                                 echo($home_service_language->content);
                             }
-                        ?>                                 
+                        ?>  
+                        </a>
                     </p>
                 </div>
             </div>
@@ -95,13 +97,15 @@
                 <div class="info-blocks-in">
                     <h3>Certified Translation</h3>
                     <p>
+                        <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/catalog', 'id'=>53])?>">                        
                         <?php 
                             $home_service_certified_t = Yii::$app->getTextBlock('home-service-certified-t');
                             if($home_service_certified_t != null)
                             {
                                 echo($home_service_certified_t->content);
                             }
-                        ?>   
+                        ?>  
+                        </a>
                     </p>
                 </div>
             </div>
@@ -111,13 +115,15 @@
                 <div class="info-blocks-in">
                     <h3>Document Translation </h3>
                     <p>
+                        <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/catalog', 'id'=>54])?>">
                         <?php 
                             $document_translation = Yii::$app->getTextBlock('home-service-document-t');
                             if($document_translation != null)
                             {
                                 echo($document_translation->content);
                             }
-                        ?>                           
+                        ?>  
+                        </a>
                     </p>
                 </div>
             </div>
@@ -129,13 +135,15 @@
                 <div class="info-blocks-in">
                     <h3>Proofreading & Editing</h3>
                     <p>
+                        <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/catalog', 'id'=>56])?>">
                         <?php 
                             $proof = Yii::$app->getTextBlock('home-service-proof');
                             if($proof != null)
                             {
                                 echo($proof->content);
                             }
-                        ?>                            
+                        ?>     
+                        </a>
                     </p>
                 </div>
             </div>
@@ -144,28 +152,33 @@
                 <div class="info-blocks-in">
                     <h3>Interpretation</h3>
                     <p>
+                        <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/catalog', 'id'=>57])?>">
                         <?php 
                             $Interpretation = Yii::$app->getTextBlock('home-service-interpretation');
                             if($Interpretation != null)
                             {
                                 echo($Interpretation->content);
                             }
-                        ?>                            
+                        ?>
+                        </a>                         
                     </p>
                 </div>
             </div>
             <div class="col-sm-4 info-blocks">
                 <i class="icon-info-blocks fa fa-html5"></i>
                 <div class="info-blocks-in">
+                    
                     <h3>Transcription</h3>
                     <p>
+                        <a href="<?=Yii::$app->urlManager->createAbsoluteUrl(['blog/default/catalog', 'id'=>55])?>">
                         <?php 
                             $transcription = Yii::$app->getTextBlock('home-service-transcription');
                             if($transcription != null)
                             {
                                 echo($transcription->content);
                             }
-                        ?>                             
+                        ?>   
+                        </a>
                     </p>
                 </div>
             </div>
